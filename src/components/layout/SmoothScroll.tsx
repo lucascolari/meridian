@@ -18,6 +18,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     if (reduced) return;
 
     const instance = new Lenis({ lerp: 0.1, smoothWheel: true });
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- exponer la instancia de Lenis via contexto a los consumidores
     setLenis(instance);
     instance.on("scroll", ScrollTrigger.update);
 

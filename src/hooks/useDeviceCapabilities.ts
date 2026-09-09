@@ -24,6 +24,7 @@ export function useDeviceCapabilities(): Capabilities {
       .deviceMemory;
     const isLowEnd = cores <= 4 || (memory !== undefined && memory <= 4);
     const dpr = Math.min(window.devicePixelRatio || 1, isLowEnd ? 1 : 2);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- deteccion de capabilities del cliente una sola vez tras montar
     setCaps({ isTouch, isLowEnd, dpr });
   }, []);
 
