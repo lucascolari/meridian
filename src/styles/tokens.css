@@ -1,0 +1,40 @@
+:root {
+  /* Color */
+  --ink: #0a0a0a;
+  --ink-soft: #121110;
+  --bone: #f5f0e6;
+  --muted: #a39c8e;
+  --gold: #d9a441;
+  --amber: #f0b357;
+  --electric: #2b6fff;
+
+  /* Tipografía (families se completan en Task 3) */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Geist", system-ui, sans-serif;
+
+  /* Espaciado (rem) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+  --space-8: 14rem;
+
+  /* Layout */
+  --container-max: 90rem;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+
+  /* Motion */
+  --duration-fast: 0.35s;
+  --duration-medium: 0.7s;
+  --duration-slow: 1.2s;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Z layers */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-cursor: 300;
+}
