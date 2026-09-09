@@ -1,0 +1,431 @@
+/* Ancho de contenido compartido por las secciones-capítulo del home */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Selector repetido para ganar por especificidad a la clase propia de
+   RevealText/KineticHeading sin depender del orden de los CSS modules */
+.eyebrow.eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ---------- Hero (THE ARRIVAL) ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--ink) 55%, transparent) 0%, color-mix(in srgb, var(--ink) 35%, transparent) 45%, var(--ink) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-6) var(--gutter) var(--space-4);
+}
+
+.heroTitle {
+  margin-top: auto;
+  font-size: clamp(4rem, 16vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.heroTagline {
+  max-width: 32rem;
+  margin-top: var(--space-3);
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+}
+
+.heroFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-5);
+}
+
+.heroScroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.heroScrollLine {
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollLine 1.8s var(--ease-smooth) infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.01% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- Blueprint (servicios) ---------- */
+.blueprint {
+  background: var(--ink);
+  padding: var(--space-7) 0;
+}
+
+.blueprintIntro {
+  max-width: 38rem;
+  margin: var(--space-4) 0 var(--space-6);
+  font-size: 1.1rem;
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.serviceItem {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.serviceIndex {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+
+.serviceTitle {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  color: var(--bone);
+}
+
+.serviceSummary {
+  max-width: 36rem;
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+}
+
+.serviceCapabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceCapability {
+  padding: 0.3rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--bone) 24%, transparent);
+  border-radius: 999px;
+  color: var(--bone);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 40rem) {
+  .serviceItem {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+/* ---------- Featured work (LIVING SPACES) ---------- */
+.living {
+  background: var(--ink-soft);
+  padding: var(--space-7) 0;
+}
+
+.livingHeader {
+  margin-bottom: var(--space-6);
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.projectCard {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: var(--space-5);
+  color: inherit;
+  text-decoration: none;
+}
+
+.projectCardReverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.projectCardReverse .projectMediaFrame {
+  order: 2;
+}
+
+.projectMediaFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.projectClient {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.projectTitle {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.projectMeta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projectCard:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+}
+
+@media (max-width: 56rem) {
+  .projectCard,
+  .projectCardReverse {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCardReverse .projectMediaFrame {
+    order: 0;
+  }
+}
+
+/* ---------- Statement (INNER SANCTUM) ---------- */
+.sanctum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70svh;
+  padding: var(--space-7) var(--gutter);
+  background: var(--ink);
+  text-align: center;
+}
+
+.sanctumStatement {
+  max-width: 56rem;
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1.1;
+}
+
+/* ---------- Welcome (CTA / contacto) ---------- */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-7) var(--gutter);
+  background: var(--ink-soft);
+  text-align: center;
+}
+
+.welcomeHeading {
+  max-width: 44rem;
+  font-size: clamp(2.25rem, 7vw, 5.5rem);
+}
+
+.welcomeActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.welcomeLink {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--bone) 30%, transparent);
+  border-radius: 999px;
+  color: var(--bone);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-expo), color var(--duration-fast) var(--ease-expo), background-color var(--duration-fast) var(--ease-expo);
+}
+
+.welcomeLink:hover,
+.welcomeLink:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.welcomeLinkPrimary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.welcomeLinkPrimary:hover,
+.welcomeLinkPrimary:focus-visible {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+}
+
+.welcomeLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: var(--space-5) var(--gutter) var(--space-3);
+  background: var(--ink);
+  border-top: 1px solid color-mix(in srgb, var(--bone) 14%, transparent);
+}
+
+.footerTop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-bottom: var(--space-4);
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 22rem;
+}
+
+.footerLogo {
+  width: fit-content;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--bone);
+  text-decoration: none;
+}
+
+.footerTagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footerColumns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footerColumnTitle {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footerNav,
+.footerSocial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footerLink {
+  width: fit-content;
+  color: var(--bone);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footerLink:hover,
+.footerLink:focus-visible {
+  color: var(--gold);
+}
+
+.footerLogo:focus-visible,
+.footerLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.footerBottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid color-mix(in srgb, var(--bone) 14%, transparent);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroScrollLine {
+    animation: none;
+  }
+
+  .welcomeLink,
+  .welcomeLinkPrimary {
+    transition: none;
+  }
+}

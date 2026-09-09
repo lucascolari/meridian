@@ -1,0 +1,29 @@
+/* Contenedor recorta el reveal por clip-path y cualquier desborde del parallax */
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.containerFill {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  display: block;
+}
+
+.imageIntrinsic {
+  width: 100%;
+  height: auto;
+}
+
+.imageFill {
+  object-fit: cover;
+}
+
+/* Escala extra para que el desplazamiento del parallax no descubra bordes */
+.imageParallax {
+  transform: scale(1.2);
+  will-change: transform;
+}

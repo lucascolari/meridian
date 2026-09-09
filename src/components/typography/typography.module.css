@@ -1,0 +1,21 @@
+/* Encabezados cinéticos: cada palabra recorta su propio overflow,
+   el heading en sí queda visible para no cortar ascendentes/descendentes */
+.heading {
+  font-family: var(--font-display);
+  color: var(--bone);
+  margin: 0;
+}
+
+.heading :global(.word) {
+  overflow: hidden;
+}
+
+.heading :global(.word-inner) {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Texto de revelado on-scroll */
+.revealText {
+  color: var(--muted);
+}
