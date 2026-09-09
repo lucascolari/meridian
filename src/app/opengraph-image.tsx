@@ -4,6 +4,8 @@ import { getSiteSettings } from "@/lib/content";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "MERIDIAN — creative studio";
+// Requerido con output: export (GitHub Pages) para generar la imagen OG estática.
+export const dynamic = "force-static";
 
 const INK = "#0a0a0a";
 const GOLD = "#d9a441";

@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import type { FormEvent } from "react";
 import { validateContact } from "@/lib/contact/validate";
 import type { ContactInput, ValidationResult } from "@/lib/contact/validate";
+import { getSiteSettings } from "@/lib/content";
 import styles from "./contact.module.css";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -34,7 +35,7 @@ export function ContactForm() {
     });
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     // Limpia cualquier banner de éxito/error previo antes de revalidar.
@@ -46,27 +47,16 @@ export function ContactForm() {
       return;
     }
 
-    setStatus("submitting");
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      const data = (await response.json()) as {
-        ok: boolean;
-        errors?: ValidationResult["errors"];
-      };
-      if (!response.ok || !data.ok) {
-        setErrors(data.errors ?? {});
-        setStatus("error");
-        return;
-      }
-      setValues(EMPTY_VALUES);
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    // Sitio estático (GitHub Pages): sin backend, el envío abre el cliente de
+    // correo del visitante con el mensaje ya redactado hacia el estudio.
+    const { email } = getSiteSettings();
+    const subject = encodeURIComponent(`New project inquiry — ${values.name}`);
+    const body = encodeURIComponent(
+      `${values.message}\n\n— ${values.name} (${values.email})`,
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    setValues(EMPTY_VALUES);
+    setStatus("success");
   }
 
   return (
