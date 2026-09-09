@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TransitionLink } from "@/components/navigation/TransitionLink";
 import { getSiteSettings } from "@/lib/content";
 import { KineticHeading } from "@/components/typography/KineticHeading";
 import styles from "./sections.module.css";
@@ -19,9 +19,9 @@ export function Welcome() {
         <a href={`mailto:${email}`} className={`${styles.welcomeLink} ${styles.welcomeLinkPrimary}`}>
           {email}
         </a>
-        <Link href="/contact" className={styles.welcomeLink}>
+        <TransitionLink href="/contact" className={styles.welcomeLink}>
           Start a project
-        </Link>
+        </TransitionLink>
       </div>
     </section>
   );

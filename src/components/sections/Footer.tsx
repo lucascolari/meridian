@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TransitionLink } from "@/components/navigation/TransitionLink";
 import { getSiteSettings } from "@/lib/content";
 import { NAV_LINKS } from "@/components/navigation/links";
 import styles from "./sections.module.css";
@@ -12,9 +12,9 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.footerTop}>
           <div className={styles.footerBrand}>
-            <Link href="/" className={styles.footerLogo}>
+            <TransitionLink href="/" className={styles.footerLogo}>
               {site.name}
-            </Link>
+            </TransitionLink>
             <p className={styles.footerTagline}>{site.tagline}</p>
           </div>
 
@@ -24,9 +24,9 @@ export function Footer() {
               <ul className={styles.footerNav}>
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className={styles.footerLink}>
+                    <TransitionLink href={link.href} className={styles.footerLink}>
                       {link.label}
-                    </Link>
+                    </TransitionLink>
                   </li>
                 ))}
               </ul>

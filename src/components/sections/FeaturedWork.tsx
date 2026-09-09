@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TransitionLink } from "@/components/navigation/TransitionLink";
 import { getFeaturedProjects } from "@/lib/content";
 import { KineticHeading } from "@/components/typography/KineticHeading";
 import { RevealText } from "@/components/typography/RevealText";
@@ -24,7 +24,7 @@ export function FeaturedWork() {
 
         <div className={styles.projectList}>
           {projects.map((project, index) => (
-            <Link
+            <TransitionLink
               key={project.slug}
               href={`/work/${project.slug}`}
               className={
@@ -49,7 +49,7 @@ export function FeaturedWork() {
                   {project.category} — {project.year}
                 </span>
               </div>
-            </Link>
+            </TransitionLink>
           ))}
         </div>
       </div>
