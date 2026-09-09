@@ -26,7 +26,10 @@ export function Showcase() {
 
   const capabilities = useDeviceCapabilities();
   const useFallback =
-    capabilities.isTouch || capabilities.isLowEnd || capabilities.prefersReducedMotion;
+    !capabilities.resolved ||
+    capabilities.isTouch ||
+    capabilities.isLowEnd ||
+    capabilities.prefersReducedMotion;
 
   const sectionRef = useRef<HTMLElement>(null);
   const progressRef = useRef(0);
@@ -71,7 +74,7 @@ export function Showcase() {
       style={{ height: `${images.length * 100}vh` }}
     >
       <div className={styles.stage}>
-        <div className={styles.canvasWrap}>
+        <div className={styles.canvasWrap} aria-hidden="true">
           <SceneCanvas images={images} progressRef={progressRef} />
         </div>
         <div className={styles.overlay} aria-hidden="true" />

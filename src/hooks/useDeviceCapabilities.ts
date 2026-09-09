@@ -7,6 +7,7 @@ interface Capabilities {
   isLowEnd: boolean;
   prefersReducedMotion: boolean;
   dpr: number;
+  resolved: boolean;
 }
 
 export function useDeviceCapabilities(): Capabilities {
@@ -15,6 +16,7 @@ export function useDeviceCapabilities(): Capabilities {
     isTouch: false,
     isLowEnd: false,
     dpr: 1,
+    resolved: false,
   });
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export function useDeviceCapabilities(): Capabilities {
     const isLowEnd = cores <= 4 || (memory !== undefined && memory <= 4);
     const dpr = Math.min(window.devicePixelRatio || 1, isLowEnd ? 1 : 2);
     // eslint-disable-next-line react-hooks/set-state-in-effect -- deteccion de capabilities del cliente una sola vez tras montar
-    setCaps({ isTouch, isLowEnd, dpr });
+    setCaps({ isTouch, isLowEnd, dpr, resolved: true });
   }, []);
 
   return { ...caps, prefersReducedMotion };
