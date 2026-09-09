@@ -1,0 +1,20 @@
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none; }
+}
+.cursor { position: fixed; inset: 0; pointer-events: none; z-index: var(--z-cursor); }
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+  border-radius: 999px; will-change: transform;
+}
+.cursor-dot { width: 6px; height: 6px; background: var(--bone); }
+.cursor-ring {
+  width: 40px; height: 40px; border: 1px solid color-mix(in srgb, var(--bone) 50%, transparent);
+  display: grid; place-items: center; transition: width .3s var(--ease-expo), height .3s var(--ease-expo), background .3s;
+}
+.cursor[data-variant="view"] .cursor-ring,
+.cursor[data-variant="explore"] .cursor-ring,
+.cursor[data-variant="play"] .cursor-ring { width: 80px; height: 80px; background: color-mix(in srgb, var(--gold) 20%, transparent); border-color: var(--gold); }
+.cursor-label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--bone); }
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { transition: none; }
+}
