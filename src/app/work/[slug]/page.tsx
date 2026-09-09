@@ -44,6 +44,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       url,
       images: [{ url: project.heroMedia.src }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.excerpt,
+      images: [project.heroMedia.src],
+    },
   });
 }
 
@@ -55,13 +61,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const related = getRelatedProjects(slug);
   const next = getAdjacentProject(slug, "next");
 
+  const site = getSiteSettings();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
-    creator: "MERIDIAN",
+    creator: site.name,
     dateCreated: String(project.year),
     about: project.category,
+    image: project.heroMedia.src,
+    url: `${SITE_URL}/work/${project.slug}`,
   };
 
   return (
@@ -80,7 +89,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {related.length > 0 ? (
         <section className={styles.related} aria-label="Related projects">
-          <p className={styles.relatedLabel}>Related work</p>
+          <h2 className={styles.relatedLabel}>Related work</h2>
           <ul className={styles.relatedList}>
             {related.map((relatedProject) => (
               <li key={relatedProject.slug}>

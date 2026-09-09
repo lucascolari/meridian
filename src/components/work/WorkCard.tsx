@@ -45,7 +45,7 @@ export function WorkCard({ project }: WorkCardProps) {
         />
       </div>
       <div className={styles.meta}>
-        <h3 className={styles.title}>{project.title}</h3>
+        <h2 className={styles.title}>{project.title}</h2>
         <span className={styles.subline}>
           {project.client} · {project.category.toUpperCase()} · {project.year}
         </span>
