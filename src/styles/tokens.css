@@ -8,9 +8,9 @@
   --amber: #f0b357;
   --electric: #2b6fff;
 
-  /* Tipografía (families se completan en Task 3) */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Geist", system-ui, sans-serif;
+  /* Tipografía */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-geist), system-ui, sans-serif;
 
   /* Espaciado (rem) */
   --space-1: 0.5rem;
