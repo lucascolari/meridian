@@ -45,7 +45,7 @@ export const project: SchemaDef = {
       name: "services",
       title: "Servicios",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "service" }] }],
+      of: [{ type: "string" }],
     },
     {
       name: "credits",
@@ -65,7 +65,16 @@ export const project: SchemaDef = {
       name: "awards",
       title: "Premios",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "award" }] }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", title: "Título", type: "string" },
+            { name: "org", title: "Organización", type: "string" },
+            { name: "year", title: "Año", type: "number" },
+          ],
+        },
+      ],
     },
     {
       name: "relatedProjects",
