@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   };
 
   return (
-    <main>
+    <>
       <ProjectHero project={project} />
 
       <section className={styles.intro}>
@@ -115,6 +115,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+    </>
   );
 }

@@ -1,0 +1,22 @@
+/* Oculto por defecto: solo se hace visible con foco de teclado (:focus-visible) */
+.skipLink {
+  position: absolute;
+  top: -100%;
+  left: var(--space-2);
+  z-index: calc(var(--z-cursor) + 1);
+  padding: var(--space-2) var(--space-3);
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: top var(--duration-fast) var(--ease-expo);
+}
+
+.skipLink:focus-visible {
+  top: var(--space-2);
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

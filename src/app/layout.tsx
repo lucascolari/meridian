@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CursorProvider } from "@/components/cursor/CursorProvider";
 import { Cursor } from "@/components/cursor/Cursor";
 import { Nav } from "@/components/navigation/Nav";
+import { SkipLink } from "@/components/a11y/SkipLink";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata();
@@ -15,12 +16,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fontVariables}>
       <body>
+        <SkipLink />
         <ViewTransitions>
           <SmoothScroll>
             <CursorProvider>
               <Cursor />
               <Nav />
-              {children}
+              <main id="main">{children}</main>
             </CursorProvider>
           </SmoothScroll>
         </ViewTransitions>

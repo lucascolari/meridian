@@ -14,7 +14,7 @@ export default function WorkPage() {
   const projects = getProjects();
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.header}>
           <RevealText as="p" className={styles.eyebrow}>
@@ -29,6 +29,6 @@ export default function WorkPage() {
 
         <WorkGrid projects={projects} />
       </div>
-    </main>
+    </div>
   );
 }

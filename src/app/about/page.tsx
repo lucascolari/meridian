@@ -18,7 +18,7 @@ export default function AboutPage() {
   const site = getSiteSettings();
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.header}>
           <RevealText as="p" className={styles.eyebrow}>
@@ -53,6 +53,6 @@ export default function AboutPage() {
           </RevealText>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
