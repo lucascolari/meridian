@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { TransitionLink } from "./TransitionLink";
 import { getFeaturedProjects, getSiteSettings } from "@/lib/content";
 import { useLenis } from "@/hooks/useLenis";
 import { gsap } from "@/lib/gsap";
@@ -109,7 +109,7 @@ export function FullscreenMenu({ open, onClose }: FullscreenMenuProps) {
 
       <nav className={styles.menuLinks} aria-label="Primary">
         {NAV_LINKS.map((link) => (
-          <Link
+          <TransitionLink
             key={link.href}
             href={link.href}
             data-menu-item
@@ -117,7 +117,7 @@ export function FullscreenMenu({ open, onClose }: FullscreenMenuProps) {
             onClick={onClose}
           >
             {link.label}
-          </Link>
+          </TransitionLink>
         ))}
       </nav>
 
@@ -127,7 +127,7 @@ export function FullscreenMenu({ open, onClose }: FullscreenMenuProps) {
           <ul className={styles.workList}>
             {projects.map((project) => (
               <li key={project.slug}>
-                <Link
+                <TransitionLink
                   href={`/work/${project.slug}`}
                   onClick={onClose}
                   className={styles.workLink}
@@ -136,7 +136,7 @@ export function FullscreenMenu({ open, onClose }: FullscreenMenuProps) {
                   <span className={styles.workMeta}>
                     {project.client} — {project.year}
                   </span>
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>

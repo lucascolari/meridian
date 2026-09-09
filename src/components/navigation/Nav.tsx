@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { TransitionLink } from "./TransitionLink";
 import { useCursor } from "@/hooks/useCursor";
 import { FullscreenMenu } from "./FullscreenMenu";
 import { NAV_LINKS } from "./links";
@@ -26,18 +26,18 @@ export function Nav() {
       <header
         className={`${styles.header} ${compact ? styles.compact : ""}`}
       >
-        <Link
+        <TransitionLink
           href="/"
           className={styles.logo}
           onMouseEnter={() => setCursor("explore")}
           onMouseLeave={reset}
         >
           MERIDIAN
-        </Link>
+        </TransitionLink>
 
         <nav className={styles.links} aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <Link
+            <TransitionLink
               key={link.href}
               href={link.href}
               className={styles.link}
@@ -45,7 +45,7 @@ export function Nav() {
               onMouseLeave={reset}
             >
               {link.label}
-            </Link>
+            </TransitionLink>
           ))}
         </nav>
 

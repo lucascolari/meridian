@@ -1,0 +1,106 @@
+/* ---------- Page shell ---------- */
+.page {
+  padding: var(--space-8) var(--gutter) var(--space-7);
+  background: var(--ink);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 40rem;
+  margin-bottom: var(--space-6);
+}
+
+.eyebrow.eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 34rem;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6) var(--space-5);
+  }
+}
+
+/* ---------- Card ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cover {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ink-soft);
+}
+
+.cover :global(img) {
+  transition: transform var(--duration-slow) var(--ease-expo);
+}
+
+.card:hover .cover :global(img),
+.card:focus-visible .cover :global(img) {
+  transform: scale(1.05);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  color: var(--bone);
+}
+
+.subline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover :global(img) {
+    transition: none;
+  }
+
+  .card:hover .cover :global(img),
+  .card:focus-visible .cover :global(img) {
+    transform: none;
+  }
+}
