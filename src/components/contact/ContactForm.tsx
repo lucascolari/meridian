@@ -37,6 +37,9 @@ export function ContactForm() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    // Limpia cualquier banner de éxito/error previo antes de revalidar.
+    setStatus("idle");
+
     const result = validateContact(values);
     setErrors(result.errors);
     if (!result.ok) {
