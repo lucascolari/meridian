@@ -6,13 +6,8 @@ import { getFeaturedProjects, getSiteSettings } from "@/lib/content";
 import { useLenis } from "@/hooks/useLenis";
 import { gsap } from "@/lib/gsap";
 import { MOTION, prefersReducedMotion } from "@/animations";
+import { NAV_LINKS } from "./links";
 import styles from "./nav.module.css";
-
-const NAV_LINKS = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
 
 interface FullscreenMenuProps {
   open: boolean;
@@ -67,7 +62,10 @@ export function FullscreenMenu({ open, onClose }: FullscreenMenuProps) {
       if (event.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      lenis?.start();
+    };
   }, [open, rendered, lenis, onClose]);
 
   // Animacion de salida + reanuda scroll + restaura foco.

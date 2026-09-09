@@ -4,13 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCursor } from "@/hooks/useCursor";
 import { FullscreenMenu } from "./FullscreenMenu";
+import { NAV_LINKS } from "./links";
 import styles from "./nav.module.css";
-
-const NAV_LINKS = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
 
 const COMPACT_THRESHOLD = 80;
 
