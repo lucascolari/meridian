@@ -21,6 +21,10 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Solo los slugs generados en build son válidos: cualquier otro devuelve un 404
+// real (status 404, no soft-404 con 200) — importante para SEO/crawlers.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getProjects().map((project) => ({ slug: project.slug }));
 }
