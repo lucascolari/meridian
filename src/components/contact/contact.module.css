@@ -1,0 +1,195 @@
+/* ---------- Page shell ---------- */
+.page {
+  padding: var(--space-8) var(--gutter) var(--space-7);
+  background: var(--ink);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 42rem;
+  margin-bottom: var(--space-7);
+}
+
+.eyebrow.eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 36rem;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Layout ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+@media (min-width: 64rem) {
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+/* ---------- Info ---------- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.email {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--bone);
+  text-decoration: none;
+  width: fit-content;
+  transition: opacity var(--duration-fast) var(--ease-expo);
+}
+
+.email:hover {
+  opacity: 0.75;
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socialLink {
+  display: inline-block;
+  width: fit-content;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: opacity var(--duration-fast) var(--ease-expo);
+}
+
+.socialLink:hover {
+  opacity: 0.7;
+}
+
+.email:focus-visible,
+.socialLink:focus-visible,
+.input:focus-visible,
+.textarea:focus-visible,
+.submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ---------- Form ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--space-2) 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--bone) 24%, transparent);
+  border-radius: 0;
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.input[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-bottom-color: var(--amber);
+}
+
+.fieldError {
+  margin: 0;
+  color: var(--amber);
+  font-size: 0.8rem;
+}
+
+.submit {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-expo),
+    opacity var(--duration-fast) var(--ease-expo);
+}
+
+.submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.errorBanner {
+  margin: 0;
+  color: var(--amber);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .email,
+  .socialLink,
+  .submit {
+    transition: none;
+  }
+
+  .submit:hover:not(:disabled) {
+    transform: none;
+  }
+}

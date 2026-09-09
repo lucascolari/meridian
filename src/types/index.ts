@@ -45,6 +45,25 @@ export interface Project {
   order: number;
 }
 
+export interface ApproachStep {
+  index: string;
+  title: string;
+  body: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+}
+
+export interface AboutContent {
+  intro: string;
+  manifesto: string[];
+  approach: ApproachStep[];
+  team: TeamMember[];
+  clients: string[];
+}
+
 export interface SiteSettings {
   name: string;
   tagline: string;

@@ -1,12 +1,17 @@
-import type { Project, Service, SiteSettings } from "@/types";
+import type { AboutContent, Project, Service, SiteSettings } from "@/types";
 import { siteSettings } from "@/content/site";
 import { services } from "@/content/services";
 import { projects } from "@/content/projects";
+import { about } from "@/content/about";
 
 const byOrder = (a: Project, b: Project): number => a.order - b.order;
 
 export function getSiteSettings(): SiteSettings {
   return siteSettings;
+}
+
+export function getAbout(): AboutContent {
+  return about;
 }
 
 export function getServices(): Service[] {

@@ -1,0 +1,183 @@
+/* ---------- Page shell ---------- */
+.page {
+  padding: var(--space-8) var(--gutter) var(--space-7);
+  background: var(--ink);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 42rem;
+  margin-bottom: var(--space-7);
+}
+
+.eyebrow.eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 36rem;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Manifesto ---------- */
+.manifesto {
+  padding: var(--space-6) 0;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.manifestoBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  max-width: 44rem;
+  margin-top: var(--space-4);
+}
+
+.manifestoParagraph {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ---------- Approach ---------- */
+.approach {
+  padding: var(--space-6) 0;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.approachIntro {
+  max-width: 38rem;
+  margin: var(--space-4) 0 var(--space-6);
+  font-size: 1.1rem;
+}
+
+.approachList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.approachStep {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.approachIndex {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+
+.approachTitle {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  color: var(--bone);
+}
+
+.approachBody {
+  max-width: 36rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 40rem) {
+  .approachStep {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+/* ---------- Team ---------- */
+.team {
+  padding: var(--space-6) 0;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 40rem) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .teamGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--space-3) 0;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.teamName {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--bone);
+}
+
+.teamRole {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Clients ---------- */
+.clients {
+  padding: var(--space-6) 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 16%, transparent);
+}
+
+.clientList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-5);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clientItem {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  transition: color var(--duration-fast) var(--ease-expo);
+}
+
+.clientItem:hover {
+  color: var(--bone);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clientItem {
+    transition: none;
+  }
+}
