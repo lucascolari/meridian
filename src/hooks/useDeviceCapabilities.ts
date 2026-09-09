@@ -24,7 +24,9 @@ export function useDeviceCapabilities(): Capabilities {
     const cores = navigator.hardwareConcurrency ?? 4;
     const memory = (navigator as Navigator & { deviceMemory?: number })
       .deviceMemory;
-    const isLowEnd = cores <= 4 || (memory !== undefined && memory <= 4);
+    // Umbral conservador solo para equipos genuinamente débiles: los desktops
+    // de 4 núcleos (muy comunes, o capados por privacidad) deben recibir WebGL.
+    const isLowEnd = cores <= 2 || (memory !== undefined && memory <= 2);
     const dpr = Math.min(window.devicePixelRatio || 1, isLowEnd ? 1 : 2);
     // eslint-disable-next-line react-hooks/set-state-in-effect -- deteccion de capabilities del cliente una sola vez tras montar
     setCaps({ isTouch, isLowEnd, dpr, resolved: true });
