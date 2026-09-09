@@ -14,7 +14,7 @@ export default function ContactPage() {
   const site = getSiteSettings();
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.header}>
           <RevealText as="p" className={styles.eyebrow}>
@@ -50,6 +50,6 @@ export default function ContactPage() {
           <ContactForm />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

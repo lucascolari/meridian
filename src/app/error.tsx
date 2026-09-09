@@ -1,7 +1,7 @@
 "use client";
 export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
-    <main style={{ display: "grid", placeItems: "center", minHeight: "100vh", gap: "1.5rem", textAlign: "center", padding: "var(--gutter)" }}>
+    <div style={{ display: "grid", placeItems: "center", minHeight: "100vh", gap: "1.5rem", textAlign: "center", padding: "var(--gutter)" }}>
       <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,6vw,4rem)" }}>
         Something broke.
       </h1>
@@ -11,6 +11,6 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
       >
         Try again
       </button>
-    </main>
+    </div>
   );
 }

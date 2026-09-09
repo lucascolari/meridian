@@ -15,6 +15,7 @@ import { ProjectHero } from "@/components/work/ProjectHero";
 import { ProjectGallery } from "@/components/work/ProjectGallery";
 import { ProjectDetails } from "@/components/work/ProjectDetails";
 import { NextProject } from "@/components/work/NextProject";
+import { JsonLd } from "@/components/seo/JsonLd";
 import styles from "@/components/work/project.module.css";
 
 interface ProjectPageProps {
@@ -78,7 +79,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   };
 
   return (
-    <main>
+    <>
       <ProjectHero project={project} />
 
       <section className={styles.intro}>
@@ -111,10 +112,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {next ? <NextProject project={next} /> : null}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-    </main>
+      <JsonLd data={jsonLd} />
+    </>
   );
 }
