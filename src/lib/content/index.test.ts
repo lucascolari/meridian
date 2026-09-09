@@ -6,6 +6,7 @@ import {
   getFeaturedProjects,
   getProject,
   getRelatedProjects,
+  getAdjacentProject,
 } from "./index";
 
 describe("content layer", () => {
@@ -36,5 +37,22 @@ describe("content layer", () => {
     const related = getRelatedProjects("the-arrival");
     expect(related.every((p) => typeof p.title === "string")).toBe(true);
     expect(related.find((p) => p.slug === "the-arrival")).toBeUndefined();
+  });
+
+  it("getAdjacentProject next envuelve del último al primero", () => {
+    const all = getProjects();
+    const last = all[all.length - 1];
+    expect(getAdjacentProject(last.slug, "next")?.slug).toBe(all[0].slug);
+  });
+  it("getAdjacentProject prev envuelve del primero al último", () => {
+    const all = getProjects();
+    expect(getAdjacentProject(all[0].slug, "prev")?.slug).toBe(all[all.length - 1].slug);
+  });
+  it("getAdjacentProject next devuelve el siguiente en orden", () => {
+    const all = getProjects();
+    expect(getAdjacentProject(all[0].slug, "next")?.slug).toBe(all[1].slug);
+  });
+  it("getAdjacentProject con slug inexistente → undefined", () => {
+    expect(getAdjacentProject("no-existe", "next")).toBeUndefined();
   });
 });

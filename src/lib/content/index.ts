@@ -32,3 +32,16 @@ export function getRelatedProjects(slug: string): Project[] {
     .map((relatedSlug) => getProject(relatedSlug))
     .filter((p): p is Project => Boolean(p));
 }
+
+export function getAdjacentProject(
+  slug: string,
+  dir: "next" | "prev",
+): Project | undefined {
+  const all = getProjects();
+  if (all.length < 2) return undefined;
+  const i = all.findIndex((p) => p.slug === slug);
+  if (i === -1) return undefined;
+  const delta = dir === "next" ? 1 : -1;
+  const j = (i + delta + all.length) % all.length;
+  return all[j];
+}
