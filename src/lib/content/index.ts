@@ -4,6 +4,26 @@ import { services } from "@/content/services";
 import { projects } from "@/content/projects";
 import { about } from "@/content/about";
 
+// CMS (Sanity) — activación, sin tocar el default sync de este módulo:
+//
+// Hoy `getProjects`/`getProject`/`getServices`/`getSiteSettings` leen el seed
+// local de forma síncrona. Cuando se configure `NEXT_PUBLIC_SANITY_PROJECT_ID`
+// (ver README, "CMS (Sanity) — cómo activar"), `getSanityClient()` deja de
+// devolver `null` y estas funciones podrían delegar en los fetchers tipados
+// de `src/lib/sanity/queries.ts`, por ejemplo:
+//
+//   import { getSanityClient } from "@/lib/sanity/client";
+//   import { fetchProjects } from "@/lib/sanity/queries";
+//
+//   export async function getProjects(): Promise<Project[]> {
+//     if (getSanityClient()) return fetchProjects();
+//     return [...projects].sort(byOrder);
+//   }
+//
+// Eso requeriría volver `getProjects` (y el resto) async y propagar el
+// `await` en quien las llama — fuera de alcance de esta tarea (YAGNI: el
+// sitio sigue funcionando 100% con el seed local, sin ninguna env seteada).
+
 const byOrder = (a: Project, b: Project): number => a.order - b.order;
 
 export function getSiteSettings(): SiteSettings {
