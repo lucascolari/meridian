@@ -7,6 +7,7 @@ import {
   getProject,
   getRelatedProjects,
   getAdjacentProject,
+  getAbout,
 } from "./index";
 
 describe("content layer", () => {
@@ -54,5 +55,12 @@ describe("content layer", () => {
   });
   it("getAdjacentProject con slug inexistente → undefined", () => {
     expect(getAdjacentProject("no-existe", "next")).toBeUndefined();
+  });
+
+  it("getAbout devuelve manifiesto y approach no vacíos", () => {
+    const a = getAbout();
+    expect(a.manifesto.length).toBeGreaterThan(0);
+    expect(a.approach.length).toBeGreaterThanOrEqual(4);
+    expect(a.team.length).toBeGreaterThan(0);
   });
 });
