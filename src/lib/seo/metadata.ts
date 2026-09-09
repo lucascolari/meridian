@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { getSiteSettings } from "@/lib/content";
+import { SITE_URL } from "@/lib/config";
 
+// TODO(fase-6): resolver dentro de buildMetadata cuando el contenido pase a async
 const site = getSiteSettings();
-const baseUrl = "https://meridian.studio";
+const baseUrl = SITE_URL;
 
 export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
   return {
